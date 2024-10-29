@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'listings',
     'rest_framework',          # pentru API REST
     'django_celery_beat',      # pentru sarcini periodice cu Celery
+    'real_estate_alert',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'real_estate_alert.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'proiect_imobiliare',       # Numele bazei de date create
+        'USER': 'postgres',               # Utilizatorul creat pentru baza de date
+        'PASSWORD': 'password',     # Parola utilizatorului
+        'HOST': 'localhost',                 # Sau IP-ul serverului PostgreSQL
+        'PORT': '5432',
     }
 }
 
