@@ -13,7 +13,7 @@ def fetch_listings_from_olx(city, max_price):
     listings = []
 
     # Selectăm fiecare element de anunț pe baza structurii HTML furnizate
-    for item in soup.select('div.css-1ut25fa'):
+    for item in soup.select('div.css-qfzx1y'):
         # Extragem titlul
         title_tag = item.select_one('h6.css-1wxaaza')
         title = title_tag.get_text().strip() if title_tag else "Titlu necunoscut"
