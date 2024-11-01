@@ -41,7 +41,21 @@ INSTALLED_APPS = [
     'rest_framework',          # pentru API REST
     'django_celery_beat',      # pentru sarcini periodice cu Celery
     'real_estate_alert',
+    'channels',
 ]
+
+# Specifică protocolul ASGI și configurația pentru canale
+ASGI_APPLICATION = 'real_estate_alert.asgi.application'
+
+# Configurarea canalelor cu Redis
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis', 6379)],  # 'redis' va fi hostname-ul containerului Redis în Docker
+        },
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
